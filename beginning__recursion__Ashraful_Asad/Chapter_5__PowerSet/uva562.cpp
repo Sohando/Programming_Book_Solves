@@ -7,19 +7,8 @@ void read() {
 		cin >> S[i];
 	}
 }
-void print() {
-	int sum2 = 0, sum3 = 0;
-	for (int i = 0; i < N; ++i) {
-		if (A[i]) {
-			sum2 += S[i];			
-		} else sum3 += S[i];
-	}	
-	// scout << sum3 << " " << sum2 << endl;
-	mini = min(mini, abs(sum3 - sum2));
-}
 int solve(int index, int sum1) {
 	if (index == N) {
-		// print();
 		int sum2 = abs(sum - sum1);
 		// cout << sum1 << " " << sum2 << endl;
 		return abs(sum2 - sum1);
