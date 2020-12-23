@@ -7,7 +7,7 @@ typedef pair<int, int> ii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 typedef long long ll;
-int bin[1007][3901];
+int bin[3901];
 void solve(int N) {
   vii st(N);
   for (auto &i : st) {
@@ -21,9 +21,9 @@ void solve(int N) {
   		//} //cout << endl;
   		return 0;
   	}
-  	if (bin[idx][maxLoad] != -1) return bin[idx][maxLoad];
+  	if (bin[maxLoad] != -1) return bin[maxLoad];
   	int l = 0, r = 0;
-  	if (maxLoad == INT_MAX) {
+  	if (maxLoad == 3007) {
   		// bin[idx] = 1;
   		l = 1 + DP(idx + 1, st[idx].ss);
   	} else if (maxLoad - st[idx].ff >= 0) {
@@ -33,7 +33,7 @@ void solve(int N) {
 		}
 		// bin[idx] = 0;
 		r = DP(idx + 1, maxLoad);
-		return bin[idx][maxLoad] = max(l, r);
+		return bin[maxLoad] = max(l, r);
   };
   int ans = DP(0, 3007);
   cout << (ans ? ans : 1) << '\n';
